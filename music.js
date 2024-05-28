@@ -114,7 +114,8 @@ songs.map((song) => {
     const li = document.createElement('li');
     const img = document.createElement('img');
     const span = document.createElement('span');
-    span.innerHTML = `Title: ${song[0]} - Artist: ${song[1]} - Album: ${song[2]}`;
+
+    span.innerHTML = `Title: ${song[0]} <br>Artist: ${song[1]} <br>Album: ${song[2]}`;
     img.src = song[3];
     img.classList.add("albumCover");
 
