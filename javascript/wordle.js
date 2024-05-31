@@ -15,7 +15,6 @@ for (let i = 1; i < 7; i++) {
 
 let round = 1;
 let slot = 1;
-let filled = false;
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let word = "SOUND";
 let guess = "";
