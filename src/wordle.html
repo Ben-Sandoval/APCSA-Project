@@ -4,23 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript</title>
-    <link rel="stylesheet" href="../styles/wordle.css" />
-    <link rel="stylesheet" href="../styles/index.css" />
+    <link rel="stylesheet" href="../src/styles/wordle.css" />
+    <link rel="stylesheet" href="../src/styles/index.css" />
   </head>
   <body>
     <header>
       <div class="navbar">
-        <a id="home" href="index.html">{ }</a>
+        <a id="home" href="../src/index.html">{ }</a>
         <h1 id="title">Ben's Website</h1>
         <div class="navbar_buttons">
-          <a href="music.html">Music</a>
+          <a href="../src/music.html">Music</a>
           <h2>Wordle</h2>
         </div>
       </div>
     </header>
     <main>
       <div class="box"></div>
+      <div class="keyboard">
+        <div id="row1">
+
+        </div>
+        <div id="row2"></div>
+        <div id="row3"></div>
+      </div>
     </main>
-    <script src="javascript/wordle.js"></script>
+    <script type="module" src="javascript/wordle.js"></script>
   </body>
 </html>

@@ -1,5 +1,6 @@
 const main = document.querySelector('main');
 const box = main.querySelector('.box');
+const keyboard = main.querySelector('.keyboard');
 
 for (let i = 1; i < 7; i++) {
     const row = document.createElement('div');
@@ -11,6 +12,19 @@ for (let i = 1; i < 7; i++) {
         row.appendChild(h1);
     }
     box.appendChild(row);
+}
+
+const rows = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
+for (let i = 0; i < 3; i++) {
+    const div = document.createElement('div');
+    div.classList = "row";
+    for (let j = 0; j < rows[i].length; j++) {
+        const h3 = document.createElement('h3');
+        h3.innerHTML = rows[i].slice(j, j+1);
+        h3.id = rows[i].slice(j, j+1);
+        div.appendChild(h3);
+        keyboard.appendChild(div);
+    }
 }
 
 let round = 1;
@@ -29,12 +43,18 @@ document.addEventListener("keydown", function (event) {
                 let count = 0;
                 for (let i = 0; i < 5; i++) {
                     const tempPos = box.querySelector(`#_${round}_${i+1}`);
+                    const keyBox = keyboard.querySelector(`#${guess.charAt(i)}`);
                     if (guess.charAt(i) == word.charAt(i)) {
+                        keyBox.classList = "correct";
                         tempPos.classList = "correct";
                         count++;
                     } else if (word.includes(guess.slice(i, i+1))) {
+                        if (keyBox.classList != "correct") {
+                            keyBox.classList = "close";
+                        }
                         tempPos.classList = "close";
                     } else {
+                        keyBox.classList = "wrong";
                         tempPos.classList = "wrong";
                     }
                 }

@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: fit-content;
+    padding-top:10px;
+    row-gap: 10px;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.keyboard .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.keyboard h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+    border: 5px solid black;
+    border-radius: 5px;
+
+    margin: 5px;
+    font-size: 25px;
+}
+
+.box div {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.box h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 70px;
+    height: 70px;
+    border: 5px solid black;
+    border-radius: 5px;
+
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.correct {
+    background-color:rgb(104, 255, 104);
+}
+
+.close {
+    background-color: rgb(255, 255, 107);
+}
+
+.wrong {
+    background-color: rgb(174, 174, 174);
+}
+
+.locked h1 {
+    background-color: red;
+}
