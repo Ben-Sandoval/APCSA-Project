@@ -1,3 +1,5 @@
+// import { generate, count } from "../../node_modules/random-words";
+
 const main = document.querySelector('main');
 const box = main.querySelector('.box');
 const keyboard = main.querySelector('.keyboard');
@@ -18,11 +20,20 @@ const rows = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
 for (let i = 0; i < 3; i++) {
     const div = document.createElement('div');
     div.classList = "row";
-    for (let j = 0; j < rows[i].length; j++) {
-        const h3 = document.createElement('h3');
-        h3.innerHTML = rows[i].slice(j, j+1);
-        h3.id = rows[i].slice(j, j+1);
-        div.appendChild(h3);
+    for (let j = -1; j < rows[i].length + 1; j++) {
+        const button = document.createElement('button');
+        let key = rows[i].slice(j, j+1);
+        if (i == 2 && j == -1) {
+            key = "ENTER";
+        } else if (i == 2 && j == rows[i].length) {
+            key = "⌫";
+        }
+        if (i != 2 && (j == -1 || j == rows[i].length)) continue;
+        button.innerHTML = key;
+        button.addEventListener('click', () => clickEvent(key));
+        button.id = key;
+        if (button.id == "⌫") button.id = "BACKSPACE";
+        div.appendChild(button);
         keyboard.appendChild(div);
     }
 }
@@ -30,14 +41,15 @@ for (let i = 0; i < 3; i++) {
 let round = 1;
 let slot = 1;
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let word = "SOUND";
+let word = "SWORD";
+// let word = generate({ minLength: 5, maxLength: 5 });
+console.log(word);
 let guess = "";
 let won = false;
 
-document.addEventListener("keydown", function (event) {
+function addKey(key) {
     if (round != 7 && !won) {
         let position = box.querySelector(`#_${round}_${slot}`);
-        const key = event.key.toUpperCase();
         if (key != "BACKSPACE") {
             if (slot == 6 && key == "ENTER") {
                 let count = 0;
@@ -50,6 +62,7 @@ document.addEventListener("keydown", function (event) {
                         count++;
                     } else if (word.includes(guess.slice(i, i+1))) {
                         if (keyBox.classList != "correct") {
+
                             keyBox.classList = "close";
                         }
                         tempPos.classList = "close";
@@ -81,4 +94,16 @@ document.addEventListener("keydown", function (event) {
             guess = guess.slice(0, -1);
         }
     }
+}
+
+document.addEventListener("keydown", function (event) {
+    const key = event.key.toUpperCase();
+    addKey(key);
 });
+
+function clickEvent(key) {
+    if (key == "⌫") key = "BACKSPACE";
+    addKey(key);
+    const keyBox = keyboard.querySelector(`#${key}`);
+    keyBox.blur();
+}
