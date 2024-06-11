@@ -1,4 +1,4 @@
-import { generate, count } from "../../node_modules/random-words";
+import { generate, count } from "random-words";
 
 const main = document.querySelector('main');
 const box = main.querySelector('.box');
