@@ -117,6 +117,7 @@ songs.map((song) => {
 
     span.innerHTML = `Title: ${song[0]} <br>Artist: ${song[1]} <br>Album: ${song[2]}`;
     img.src = song[3];
+    img.alt = "Failed too load";
     img.classList.add("albumCover");
 
     li.prepend(img);
