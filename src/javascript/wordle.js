@@ -1,5 +1,4 @@
-const randomWords = require("../../node_modules/random-words");
-const generate = randomWords.generate;
+import { generate, count } from "../../node_modules/random-words";
 
 const main = document.querySelector("main");
 const box = main.querySelector(".box");
@@ -42,7 +41,6 @@ for (let i = 0; i < 3; i++) {
 let round = 1;
 let slot = 1;
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// let word = "HEDGE";
 let word = generate({ minLength: 5, maxLength: 5 }).toUpperCase();
 console.log(word);
 let guess = "";
