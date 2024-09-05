@@ -1,4 +1,5 @@
-import { generate, count } from "../../node_modules/random-words";
+const randomWords = require("../../node_modules/random-words");
+const generate = randomWords.generate;
 
 const main = document.querySelector("main");
 const box = main.querySelector(".box");
